@@ -11,10 +11,10 @@ public class CardManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CardManagementApplication.class, args);
 	}
-	
-	   @Bean
-	    public ModelMapper getModelMapper() {
-	        return new ModelMapper();
-	    }
+
+	@Bean
+	public ModelMapper getModelMapper() {
+		return new ModelMapper();
+	}
 
 }

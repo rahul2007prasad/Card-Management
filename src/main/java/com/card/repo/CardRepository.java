@@ -2,8 +2,8 @@ package com.card.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.card.dto.CardDetailsDto;
+import com.card.dao.CardDetailsDao;
 
-public interface CardRepository extends JpaRepository<CardDetailsDto, Long>{
+public interface CardRepository extends JpaRepository<CardDetailsDao, Long>{
 
 }

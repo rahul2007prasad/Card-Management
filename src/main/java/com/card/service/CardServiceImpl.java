@@ -21,17 +21,19 @@ public class CardServiceImpl implements ICardService {
 	public CardDetailsDto insertCardDetails(CardDetailsDao cardDetails) {
 		// TODO Auto-generated method stub
 
-		CardDetailsDto cardDetailsDto = modelMapper.map(cardDetails, CardDetailsDto.class);
-		CardDetailsDto saveCardDetailsDto = cardRepository.save(cardDetailsDto);
+		
+		 CardDetailsDao cardDetailsDao = cardRepository.save(cardDetails);
+		 CardDetailsDto cardDetailsDto = modelMapper.map(cardDetailsDao, CardDetailsDto.class);
 
-		return saveCardDetailsDto;
+		return cardDetailsDto;
 	}
 
 	@Override
 	public CardDetailsDto updateCardDetails(CardDetailsDao cardDetails) {
-		CardDetailsDto cardDetailsDto = cardRepository.findById(cardDetails.getCardSerialNumber()).orElseThrow();
-		CardDetailsDto cardDetailsDtoMapped = modelMapper.map(cardDetailsDto, CardDetailsDto.class);
-		cardRepository.save(cardDetailsDtoMapped);
+		CardDetailsDao cardDetailsDao = cardRepository.findById(cardDetails.getCardSerialNumber()).orElseThrow();
+		//CardDetailsDto cardDetailsDtoMapped = modelMapper.map(cardDetailsDao, CardDetailsDto.class);
+		CardDetailsDao updatedDetails = cardRepository.save(cardDetails);
+		CardDetailsDto cardDetailsDtoMapped = modelMapper.map(updatedDetails, CardDetailsDto.class);
 		return cardDetailsDtoMapped;
 	}
 
